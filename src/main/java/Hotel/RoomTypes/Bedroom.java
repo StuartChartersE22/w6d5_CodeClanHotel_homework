@@ -20,4 +20,8 @@ public class Bedroom extends Room {
     public int getNumber() {
         return this.number;
     }
+
+    public double getRate() {
+        return this.type.getRate();
+    }
 }

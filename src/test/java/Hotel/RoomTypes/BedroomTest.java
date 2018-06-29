@@ -37,6 +37,13 @@ public class BedroomTest {
     }
 
     @Test
+    public void canRemoveGuest(){
+        bedroom1.addOccupant(guest);
+        bedroom1.removeGuest(guest);
+        assertEquals(0, bedroom1.getNumberOfOccupants());
+    }
+
+    @Test
     public void canGetArrayListOfOccupants(){
         bedroom1.addOccupant(guest);
         assertEquals(guest, bedroom1.getOccupants().get(0));
@@ -50,5 +57,10 @@ public class BedroomTest {
     @Test
     public void canGetBedroomNumber(){
         assertEquals(1, bedroom1.getNumber());
+    }
+
+    @Test
+    public void canGetBedroomRate(){
+        assertEquals(12.00, bedroom1.getRate(), 0.001);
     }
 }

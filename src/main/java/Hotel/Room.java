@@ -24,11 +24,15 @@ public abstract class Room {
 
     public void addOccupant(Guest guest){
         if(getNumberOfOccupants() < this.capacity) {
-            occupants.add(guest);
+            this.occupants.add(guest);
         }
     }
 
     public int getCapacity(){
         return this.capacity;
+    }
+
+    public void removeGuest(Guest guest) {
+        this.occupants.remove(guest);
     }
 }
