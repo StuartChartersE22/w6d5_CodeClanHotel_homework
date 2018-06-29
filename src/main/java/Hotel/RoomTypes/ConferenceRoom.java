@@ -6,13 +6,11 @@ public class ConferenceRoom extends Room {
 
     private String name;
     private double rate;
-    private boolean booked;
 
     public ConferenceRoom(int capacity, String name, double rate){
         super(capacity);
         this.name = name;
         this.rate = rate;
-        this.booked = false;
     }
 
     public String getName() {
@@ -21,18 +19,5 @@ public class ConferenceRoom extends Room {
 
     public double getRate() {
         return this.rate;
-    }
-
-
-    public boolean isBooked() {
-        return this.booked;
-    }
-
-    public void book() {
-        this.booked = true;
-    }
-
-    public void unbook() {
-        this.booked = false;
     }
 }

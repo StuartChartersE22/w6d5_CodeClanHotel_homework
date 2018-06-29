@@ -59,22 +59,4 @@ public class ConferenceRoomTest {
     public void canGetRate(){
         assertEquals(35.50, conferenceRoom.getRate(), 0.001);
     }
-
-    @Test
-    public void startsNotBooked(){
-        assertFalse(conferenceRoom.isBooked());
-    }
-
-    @Test
-    public void canBook(){
-        conferenceRoom.book();
-        assertTrue(conferenceRoom.isBooked());
-    }
-
-    @Test
-    public void canUnbook(){
-        conferenceRoom.book();
-        conferenceRoom.unbook();
-        assertFalse(conferenceRoom.isBooked());
-    }
 }
