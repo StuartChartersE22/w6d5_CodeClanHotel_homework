@@ -9,8 +9,9 @@ public abstract class Room {
     protected int capacity;
     private ArrayList<Guest> occupants;
 
-    public Room(){
+    public Room(int capacity){
         this.occupants = new ArrayList<>();
+        this.capacity = capacity;
     }
 
     public ArrayList<Guest> getOccupants(){
