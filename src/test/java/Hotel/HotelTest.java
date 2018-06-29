@@ -71,11 +71,33 @@ public class HotelTest {
     }
 
     @Test
-    public void canGetBedRooms(){
-        ArrayList<Bedroom> bedrooms = new ArrayList<>();
-        bedrooms.add(bedroom1);
-        bedrooms.add(bedroom2);
+    public void canGetBedrooms(){
         assertEquals(bedrooms, hotel.getBedrooms());
+    }
+
+    @Test
+    public void canGetDiningRooms(){
+        assertEquals(diningRooms, hotel.getDiningRooms());
+    }
+
+    @Test
+    public void canGetConferenceRooms(){
+        assertEquals(conferenceRooms, hotel.getConferenceRooms());
+    }
+
+    @Test
+    public void canMakeHotelWithOnlyBedrooms(){
+        Hotel hotel = new Hotel("Le Petite CodeClan",bedrooms);
+        assertEquals(bedrooms, hotel.getRooms());
+    }
+
+    @Test
+    public void canMakeHotelWithBedroomsAndDiningrooms(){
+        Hotel hotel = new Hotel("B&B CodeClan", bedrooms, diningRooms);
+        ArrayList<Room> rooms = new ArrayList<>();
+        rooms.addAll(bedrooms);
+        rooms.addAll(diningRooms);
+        assertEquals(rooms, hotel.getRooms());
     }
 
 }
