@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 public class ConferenceRoomTest {
 
@@ -44,5 +45,22 @@ public class ConferenceRoomTest {
     public void canGetArrayListOfOccupants(){
         conferenceRoom.addGuest(guest);
         assertEquals(guest, conferenceRoom.getOccupants().get(0));
+    }
+
+    // CONFERENCE ROOM SPECIFIC TESTS
+
+    @Test
+    public void canGetName(){
+        assertEquals("Main", conferenceRoom.getName());
+    }
+
+    @Test
+    public void canGetRate(){
+        assertEquals(35.50, conferenceRoom.getRate(), 0.001);
+    }
+
+    @Test
+    public void startsNotBooked(){
+        assertFalse(conferenceRoom.isBooked());
     }
 }
