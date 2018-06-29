@@ -41,4 +41,14 @@ public class BedroomTest {
         bedroom1.addOccupant(guest);
         assertEquals(guest, bedroom1.getOccupants().get(0));
     }
+
+    @Test
+    public void canGetBedroomType(){
+        assertEquals(BedroomTypes.SINGLE, bedroom1.getType());
+    }
+
+    @Test
+    public void canGetBedroomNumber(){
+        assertEquals(1, bedroom1.getNumber());
+    }
 }
