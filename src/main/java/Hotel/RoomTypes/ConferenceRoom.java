@@ -1,4 +1,15 @@
 package Hotel.RoomTypes;
 
-public class ConferenceRoom {
+import Hotel.Room;
+
+public class ConferenceRoom extends Room {
+
+    private String name;
+    private double rate;
+
+    public ConferenceRoom(int capacity, String name, double rate){
+        super(capacity);
+        this.name = name;
+        this.rate = rate;
+    }
 }

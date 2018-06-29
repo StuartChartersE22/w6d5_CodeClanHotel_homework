@@ -49,6 +49,8 @@ public class BedroomTest {
         assertEquals(guest, bedroom1.getOccupants().get(0));
     }
 
+    // BEDROOM SPECIFIC TESTS
+
     @Test
     public void canGetBedroomType(){
         assertEquals(BedroomTypes.SINGLE, bedroom1.getType());
