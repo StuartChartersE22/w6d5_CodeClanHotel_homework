@@ -22,7 +22,7 @@ public abstract class Room {
         return this.occupants.size();
     }
 
-    public void addOccupant(Guest guest){
+    public void addGuest(Guest guest){
         if(getNumberOfOccupants() < this.capacity) {
             this.occupants.add(guest);
         }

@@ -29,20 +29,20 @@ public class ConferenceRoomTest {
 
     @Test
     public void canAddGuest(){
-        conferenceRoom.addOccupant(guest);
+        conferenceRoom.addGuest(guest);
         assertEquals(1, conferenceRoom.getNumberOfOccupants());
     }
 
     @Test
     public void canRemoveGuest(){
-        conferenceRoom.addOccupant(guest);
+        conferenceRoom.addGuest(guest);
         conferenceRoom.removeGuest(guest);
         assertEquals(0, conferenceRoom.getNumberOfOccupants());
     }
 
     @Test
     public void canGetArrayListOfOccupants(){
-        conferenceRoom.addOccupant(guest);
+        conferenceRoom.addGuest(guest);
         assertEquals(guest, conferenceRoom.getOccupants().get(0));
     }
 }
