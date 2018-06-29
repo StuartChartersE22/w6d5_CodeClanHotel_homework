@@ -20,7 +20,7 @@ public class ConferenceRoomTest {
     }
 
     @Test
-    public void conferenceroomStartsEmpty(){
+    public void conferenceRoomStartsEmpty(){
         assertEquals(0, conferenceRoom.getNumberOfOccupants());
     }
 
