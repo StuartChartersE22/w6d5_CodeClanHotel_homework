@@ -4,6 +4,11 @@ import People.Guest;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -57,6 +62,16 @@ public class ConferenceRoomTest {
     @Test
     public void canSeeIfaGuestIsntInTheRoom(){
         assertFalse(conferenceRoom.isGuestInRoom(guest));
+    }
+
+    @Test
+    public void canBookRoomWithDate() throws ParseException {
+        conferenceRoom.bookRoom(guest,"09-10-2018 at 13:30");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy 'at' HH:mm");
+        Date date = dateFormat.parse("09-10-2018 at 13:30");
+        HashMap<Guest, Date> bookings = new HashMap<>();
+        bookings.put(guest, date);
+        assertEquals(bookings, conferenceRoom.getBookings());
     }
 
     // CONFERENCE ROOM SPECIFIC TESTS

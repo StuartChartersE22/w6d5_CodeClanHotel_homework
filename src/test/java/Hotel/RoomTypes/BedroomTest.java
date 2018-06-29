@@ -4,6 +4,11 @@ import People.Guest;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -63,6 +68,16 @@ public class BedroomTest {
     }
 
     // BEDROOM SPECIFIC TESTS
+
+    @Test
+    public void canBookRoomWithDate() throws ParseException {
+        bedroom1.bookRoom(guest,"09-10-2018");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        Date date = dateFormat.parse("09-10-2018");
+        HashMap<Guest, Date> bookings = new HashMap<>();
+        bookings.put(guest, date);
+        assertEquals(bookings, bedroom1.getBookings());
+    }
 
     @Test
     public void canGetBedroomType(){

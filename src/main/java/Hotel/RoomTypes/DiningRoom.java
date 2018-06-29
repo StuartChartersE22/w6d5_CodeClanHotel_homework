@@ -8,8 +8,8 @@ public class DiningRoom extends Room {
 
     private HashMap<String, Double> menu;
 
-    public DiningRoom(int capacity, HashMap<String, Double> menu){
-        super(capacity);
+    public DiningRoom(int capacity, HashMap<String, Double> menu, double rate){
+        super(capacity, rate);
         this.menu = menu;
     }
 

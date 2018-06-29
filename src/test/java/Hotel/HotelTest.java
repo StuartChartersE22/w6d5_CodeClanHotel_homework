@@ -35,7 +35,7 @@ public class HotelTest {
         menu1.put("Club", 2.50);
         menu1.put("Coronation chicken", 4.50);
         menu1.put("Steak melt", 6.50);
-        diningRoom = new DiningRoom(20, menu1);
+        diningRoom = new DiningRoom(20, menu1, 60.00);
 
         bedroom1 = new Bedroom(BedroomTypes.SINGLE, 1);
         bedroom2 = new Bedroom(BedroomTypes.DOUBLE, 2);

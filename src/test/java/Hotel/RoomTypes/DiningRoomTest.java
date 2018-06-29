@@ -30,7 +30,7 @@ public class DiningRoomTest {
         menu2.put("Cesar salad", 5.35);
         menu2.put("Lasagne", 12.75);
 
-        diningRoom = new DiningRoom(20, menu1);
+        diningRoom = new DiningRoom(20, menu1, 60.00);
         guest = new Guest(200.00);
     }
 
