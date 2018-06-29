@@ -23,6 +23,9 @@ public class HotelTest {
     private HashMap<String, Double> menu1;
     private Hotel hotel;
     private ArrayList<Room> rooms;
+    private ArrayList<Bedroom> bedrooms;
+    private ArrayList<DiningRoom> diningRooms;
+    private ArrayList<ConferenceRoom> conferenceRooms;
 
     @Before
     public void before(){
@@ -39,20 +42,40 @@ public class HotelTest {
 
         conferenceRoom = new ConferenceRoom(20,"Main", 35.50);
 
+        bedrooms = new ArrayList<>();
+        diningRooms = new ArrayList<>();
+        conferenceRooms = new ArrayList<>();
+        diningRooms.add(diningRoom);
+        bedrooms.add(bedroom1);
+        bedrooms.add(bedroom2);
+        conferenceRooms.add(conferenceRoom);
+
         rooms = new ArrayList<>();
-        rooms.add(diningRoom);
-        rooms.add(bedroom1);
-        rooms.add(bedroom2);
-        rooms.add(conferenceRoom);
+        rooms.addAll(bedrooms);
+        rooms.addAll(diningRooms);
+        rooms.addAll(conferenceRooms);
 
         guest = new Guest(200.00);
 
-        hotel = new Hotel ("CodeClan", rooms);
+        hotel = new Hotel ("CodeClan", bedrooms, diningRooms, conferenceRooms);
     }
 
     @Test
     public void canGetName(){
         assertEquals("CodeClan", hotel.getName());
+    }
+
+    @Test
+    public void canGetRooms(){
+        assertEquals(rooms, hotel.getRooms());
+    }
+
+    @Test
+    public void canGetBedRooms(){
+        ArrayList<Bedroom> bedrooms = new ArrayList<>();
+        bedrooms.add(bedroom1);
+        bedrooms.add(bedroom2);
+        assertEquals(bedrooms, hotel.getBedrooms());
     }
 
 }
