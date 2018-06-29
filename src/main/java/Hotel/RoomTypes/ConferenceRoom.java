@@ -27,4 +27,12 @@ public class ConferenceRoom extends Room {
     public boolean isBooked() {
         return this.booked;
     }
+
+    public void book() {
+        this.booked = true;
+    }
+
+    public void unbook() {
+        this.booked = false;
+    }
 }
