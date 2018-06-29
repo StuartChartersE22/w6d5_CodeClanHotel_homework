@@ -1,12 +1,12 @@
 package Hotel.RoomTypes;
 
+import Hotel.Config;
 import People.Guest;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.Calendar;
 import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
@@ -79,12 +79,14 @@ public class DiningRoomTest {
 
     @Test
     public void canBookRoomWithDate() throws ParseException {
-        diningRoom.bookRoom(guest,"09-10-2018 at 13:30");
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy 'at' HH:mm");
-        Date date = dateFormat.parse("09-10-2018 at 13:30");
-        HashMap<Guest, Date> bookings = new HashMap<>();
-        bookings.put(guest, date);
-        assertEquals(bookings, diningRoom.getBookings());
+        String startDatetime = "09-10-2018 at 13:30";
+        String endDatetime = "09-10-2018 at 17:30";
+        Calendar startDate = Calendar.getInstance();
+        Calendar endDate = Calendar.getInstance();
+        startDate.setTime(Config.DATE_FORMAT.parse(startDatetime));
+        endDate.setTime(Config.DATE_FORMAT.parse(endDatetime));
+        diningRoom.bookRoom(guest, startDate, endDate);
+        assertEquals(startDate, diningRoom.getBookings().get(guest).getStartDate());
     }
 
     //DINING ROOM SPECIFIC TESTS

@@ -2,10 +2,8 @@ package Hotel;
 
 import People.Guest;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Calendar;
 import java.util.HashMap;
 
 public abstract class Room {
@@ -13,7 +11,7 @@ public abstract class Room {
     private int capacity;
     private ArrayList<Guest> occupants;
     private double rate;
-    protected HashMap<Guest, Date> bookings;
+    protected HashMap<Guest, Booking> bookings;
 
     public Room(int capacity, double rate){
         this.occupants = new ArrayList<>();
@@ -53,18 +51,12 @@ public abstract class Room {
     }
 
 
-    public boolean bookRoom(Guest guest, String dateString){
-        SimpleDateFormat datetimeFormat = new SimpleDateFormat("dd-MM-yyyy 'at' HH:mm");
-        try {
-            Date date = datetimeFormat.parse(dateString);
-            bookings.put(guest, date);
-            return true;
-        } catch (ParseException e) {
-            return false;
-        }
+    public void bookRoom(Guest guest, Calendar startDate, Calendar endDate){
+        Booking booking = new Booking(startDate, endDate);
+        bookings.put(guest, booking);
     }
 
-    public HashMap<Guest,Date> getBookings() {
+    public HashMap<Guest, Booking> getBookings() {
         return this.bookings;
     }
 }

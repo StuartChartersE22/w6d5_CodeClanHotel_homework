@@ -1,13 +1,12 @@
 package Hotel.RoomTypes;
 
+import Hotel.Config;
 import People.Guest;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
+import java.util.Calendar;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -67,17 +66,19 @@ public class BedroomTest {
         assertFalse(bedroom1.isGuestInRoom(guest));
     }
 
-    // BEDROOM SPECIFIC TESTS
-
     @Test
     public void canBookRoomWithDate() throws ParseException {
-        bedroom1.bookRoom(guest,"09-10-2018");
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-        Date date = dateFormat.parse("09-10-2018");
-        HashMap<Guest, Date> bookings = new HashMap<>();
-        bookings.put(guest, date);
-        assertEquals(bookings, bedroom1.getBookings());
+        String startDatetime = "09-10-2018 at 13:30";
+        String endDatetime = "09-10-2018 at 17:30";
+        Calendar startDate = Calendar.getInstance();
+        Calendar endDate = Calendar.getInstance();
+        startDate.setTime(Config.DATE_FORMAT.parse(startDatetime));
+        endDate.setTime(Config.DATE_FORMAT.parse(endDatetime));
+        bedroom1.bookRoom(guest, startDate, endDate);
+        assertEquals(startDate, bedroom1.getBookings().get(guest).getStartDate());
     }
+
+    // BEDROOM SPECIFIC TESTS
 
     @Test
     public void canGetBedroomType(){
