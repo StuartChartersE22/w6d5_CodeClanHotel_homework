@@ -12,4 +12,12 @@ public class DiningRoom extends Room {
         super(capacity);
         this.menu = menu;
     }
+
+    public HashMap<String,Double> getMenu() {
+        return this.menu;
+    }
+
+    public void setMenu(HashMap<String,Double> menu) {
+        this.menu = menu;
+    }
 }

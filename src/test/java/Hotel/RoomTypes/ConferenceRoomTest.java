@@ -5,8 +5,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 public class ConferenceRoomTest {
 
@@ -20,7 +18,7 @@ public class ConferenceRoomTest {
     }
 
     @Test
-    public void bedroomStartsEmpty(){
+    public void conferenceroomStartsEmpty(){
         assertEquals(0, conferenceRoom.getNumberOfOccupants());
     }
 
