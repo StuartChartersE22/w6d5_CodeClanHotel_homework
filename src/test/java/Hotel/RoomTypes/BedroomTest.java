@@ -5,6 +5,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class BedroomTest {
 
@@ -47,6 +49,17 @@ public class BedroomTest {
     public void canGetArrayListOfOccupants(){
         bedroom1.addGuest(guest);
         assertEquals(guest, bedroom1.getOccupants().get(0));
+    }
+
+    @Test
+    public void canSeeIfaGuestIsInTheRoom(){
+        bedroom1.addGuest(guest);
+        assertTrue(bedroom1.isGuestInRoom(guest));
+    }
+
+    @Test
+    public void canSeeIfaGuestIsntInTheRoom(){
+        assertFalse(bedroom1.isGuestInRoom(guest));
     }
 
     // BEDROOM SPECIFIC TESTS

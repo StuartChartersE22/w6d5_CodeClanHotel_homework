@@ -35,4 +35,8 @@ public abstract class Room {
     public void removeGuest(Guest guest) {
         this.occupants.remove(guest);
     }
+
+    public boolean isGuestInRoom(Guest guest){
+        return occupants.contains(guest);
+    }
 }

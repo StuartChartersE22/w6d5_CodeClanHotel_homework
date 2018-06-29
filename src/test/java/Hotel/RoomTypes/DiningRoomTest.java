@@ -7,6 +7,8 @@ import org.junit.Test;
 import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class DiningRoomTest {
 
@@ -59,6 +61,17 @@ public class DiningRoomTest {
     public void canGetArrayListOfOccupants(){
         diningRoom.addGuest(guest);
         assertEquals(guest, diningRoom.getOccupants().get(0));
+    }
+
+    @Test
+    public void canSeeIfaGuestIsInTheRoom(){
+        diningRoom.addGuest(guest);
+        assertTrue(diningRoom.isGuestInRoom(guest));
+    }
+
+    @Test
+    public void canSeeIfaGuestIsntInTheRoom(){
+        assertFalse(diningRoom.isGuestInRoom(guest));
     }
 
     //DINING ROOM SPECIFIC TESTS
