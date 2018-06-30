@@ -1,98 +1,99 @@
-//package Hotel.RoomTypes;
-//
-//import Hotel.Config;
-//import Hotel.DateConversion;
-//import People.Guest;
-//import org.junit.Before;
-//import org.junit.Test;
-//
-//import java.text.ParseException;
-//import java.util.Calendar;
-//
-//import static org.junit.Assert.assertEquals;
-//import static org.junit.Assert.assertFalse;
-//import static org.junit.Assert.assertTrue;
-//
-//public class BedroomTest {
-//
-//    private Bedroom bedroom1;
-//    private Bedroom bedroom2;
-//    private Guest guest;
-//
-//    @Before
-//    public void before(){
-//        bedroom1 = new Bedroom(BedroomTypes.SINGLE, 1);
-//        bedroom2 = new Bedroom(BedroomTypes.DOUBLE, 2);
-//        guest = new Guest(200.00);
-//
-//    }
-//
-//    @Test
-//    public void bedroomStartsEmpty(){
-//        assertEquals(0, bedroom1.getNumberOfOccupants());
-//    }
-//
-//    @Test
-//    public void canGetCapacity(){
-//        assertEquals(1, bedroom1.getCapacity());
-//    }
-//
-//    @Test
-//    public void canAddGuest(){
-//        bedroom1.addGuest(guest);
-//        assertEquals(1, bedroom1.getNumberOfOccupants());
-//    }
-//
-//    @Test
-//    public void canRemoveGuest(){
-//        bedroom1.addGuest(guest);
-//        bedroom1.removeGuest(guest);
-//        assertEquals(0, bedroom1.getNumberOfOccupants());
-//    }
-//
-//    @Test
-//    public void canGetArrayListOfOccupants(){
-//        bedroom1.addGuest(guest);
-//        assertEquals(guest, bedroom1.getOccupants().get(0));
-//    }
-//
-//    @Test
-//    public void canSeeIfaGuestIsInTheRoom(){
-//        bedroom1.addGuest(guest);
-//        assertTrue(bedroom1.isGuestInRoom(guest));
-//    }
-//
-//    @Test
-//    public void canSeeIfaGuestIsntInTheRoom(){
-//        assertFalse(bedroom1.isGuestInRoom(guest));
-//    }
-//
-//    @Test
-//    public void canBookRoomWithDate() throws ParseException {
-//        String startDatetime = "09-10-2018 at 13:30";
-//        String endDatetime = "09-10-2018 at 17:30";
-//        Calendar startDate = Calendar.getInstance();
-//        Calendar endDate = Calendar.getInstance();
-//        startDate = DateConversion.formatForProgram(startDatetime);
-//        endDate = DateConversion.formatForProgram(endDatetime);
-//        bedroom1.bookRoom(guest, startDate, endDate);
-//        assertEquals(startDate, bedroom1.getBookings().get(guest).getStartDate());
-//    }
-//
-//    // BEDROOM SPECIFIC TESTS
-//
-//    @Test
-//    public void canGetBedroomType(){
-//        assertEquals(BedroomTypes.SINGLE, bedroom1.getType());
-//    }
-//
-//    @Test
-//    public void canGetBedroomNumber(){
-//        assertEquals(1, bedroom1.getNumber());
-//    }
-//
-//    @Test
-//    public void canGetBedroomRate(){
-//        assertEquals(12.00, bedroom1.getRate(), 0.001);
-//    }
-//}
+package Hotel.RoomTypes;
+
+import Hotel.Booking;
+import Hotel.DateConversion;
+import People.Guest;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.text.ParseException;
+import java.util.Calendar;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+public class BedroomTest {
+
+    private Bedroom bedroom1;
+    private Bedroom bedroom2;
+    private Guest guest;
+
+    @Before
+    public void before(){
+        bedroom1 = new Bedroom(BedroomTypes.SINGLE, 1);
+        bedroom2 = new Bedroom(BedroomTypes.DOUBLE, 2);
+        guest = new Guest(200.00);
+
+    }
+
+    @Test
+    public void bedroomStartsEmpty(){
+        assertEquals(0, bedroom1.getNumberOfOccupants());
+    }
+
+    @Test
+    public void canGetCapacity(){
+        assertEquals(1, bedroom1.getCapacity());
+    }
+
+    @Test
+    public void canAddGuest(){
+        bedroom1.addGuest(guest);
+        assertEquals(1, bedroom1.getNumberOfOccupants());
+    }
+
+    @Test
+    public void canRemoveGuest(){
+        bedroom1.addGuest(guest);
+        bedroom1.removeGuest(guest);
+        assertEquals(0, bedroom1.getNumberOfOccupants());
+    }
+
+    @Test
+    public void canGetArrayListOfOccupants(){
+        bedroom1.addGuest(guest);
+        assertEquals(guest, bedroom1.getOccupants().get(0));
+    }
+
+    @Test
+    public void canSeeIfaGuestIsInTheRoom(){
+        bedroom1.addGuest(guest);
+        assertTrue(bedroom1.isGuestInRoom(guest));
+    }
+
+    @Test
+    public void canSeeIfaGuestIsntInTheRoom(){
+        assertFalse(bedroom1.isGuestInRoom(guest));
+    }
+
+    @Test
+    public void canBookRoomWithDate() throws ParseException {
+        String startDatetime = "09-10-2018 at 13:30";
+        String endDatetime = "09-10-2018 at 17:30";
+        Calendar startDate;
+        Calendar endDate;
+        startDate = DateConversion.formatForProgram(startDatetime);
+        endDate = DateConversion.formatForProgram(endDatetime);
+        Booking booking = new Booking(startDate, endDate);
+        bedroom1.bookRoom(guest, booking);
+        assertEquals(startDate, bedroom1.getBookings().get(guest).getStartDate());
+    }
+
+    // BEDROOM SPECIFIC TESTS
+
+    @Test
+    public void canGetBedroomType(){
+        assertEquals(BedroomTypes.SINGLE, bedroom1.getType());
+    }
+
+    @Test
+    public void canGetBedroomNumber(){
+        assertEquals(1, bedroom1.getNumber());
+    }
+
+    @Test
+    public void canGetBedroomRate(){
+        assertEquals(12.00, bedroom1.getRate(), 0.001);
+    }
+}
