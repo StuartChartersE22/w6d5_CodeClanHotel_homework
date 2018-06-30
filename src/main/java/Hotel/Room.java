@@ -4,6 +4,7 @@ import People.Guest;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.HashMap;
 
 public abstract class Room {
@@ -51,12 +52,22 @@ public abstract class Room {
     }
 
 
-    public void bookRoom(Guest guest, Calendar startDate, Calendar endDate){
-        Booking booking = new Booking(startDate, endDate);
+    public void bookRoom(Guest guest, Booking booking){
         bookings.put(guest, booking);
     }
 
     public HashMap<Guest, Booking> getBookings() {
         return this.bookings;
+    }
+
+    public boolean doesBookingOverlap(Booking potentialBooking){
+        boolean result = false;
+        Collection<Booking> currentBookings = this.bookings.values();
+        for(Booking booking : currentBookings){
+            if(booking.doesBookingOverlap(potentialBooking)){
+                result = true;
+            }
+        }
+        return result;
     }
 }

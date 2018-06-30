@@ -26,6 +26,8 @@ public class HotelTest {
     private ArrayList<Bedroom> bedrooms;
     private ArrayList<DiningRoom> diningRooms;
     private ArrayList<ConferenceRoom> conferenceRooms;
+    private String startDateTime;
+    private String endDateTime;
 
     @Before
     public void before(){
@@ -58,6 +60,10 @@ public class HotelTest {
         guest = new Guest(200.00);
 
         hotel = new Hotel ("CodeClan", bedrooms, diningRooms, conferenceRooms);
+
+        startDateTime = "09-10-2018 at 13:30";
+        endDateTime = "09-10-2018 at 17:30";
+
     }
 
     @Test
@@ -98,6 +104,13 @@ public class HotelTest {
         rooms.addAll(bedrooms);
         rooms.addAll(diningRooms);
         assertEquals(rooms, hotel.getRooms());
+    }
+
+    @Test
+    public void canBookAConferenceRoom(){
+        hotel.bookConferenceRoom(conferenceRoom, guest, startDateTime, endDateTime);
+        assertEquals(1, conferenceRoom.getBookings().size());
+        assertEquals(58.00, guest.getWallet(), 0.001);
     }
 
 }

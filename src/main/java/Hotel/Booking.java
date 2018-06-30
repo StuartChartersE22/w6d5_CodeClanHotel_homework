@@ -19,5 +19,23 @@ public class Booking {
     public Calendar getEndDate() {
         return this.endDate;
     }
+
+    public boolean doesDateOverlap(Calendar potentialDate){
+        boolean result = false;
+        if(this.startDate.before(potentialDate) && this.endDate.after(potentialDate)){
+            result = true;
+        }
+        return result;
+    }
+
+    public boolean doesBookingOverlap(Booking potentialBooking){
+        boolean result = false;
+        Calendar potentialStartDate = potentialBooking.getStartDate();
+        Calendar potentialEndDate = potentialBooking.getEndDate();
+        if(doesDateOverlap(potentialStartDate) || doesDateOverlap(potentialEndDate)){
+            result = true;
+        }
+        return result;
+    }
 }
 
