@@ -80,8 +80,12 @@ public class Hotel {
         }
 
         Booking potentialBooking = new Booking(potentialStartDate, potentialEndDate);
-        int durationInMilliseconds = potentialStartDate.compareTo(potentialEndDate);
-        int durationInHoursCeiling = (durationInMilliseconds + (1000 * 60 * 60) - 1) / (1000 * 60 * 60);
+
+
+        long durationInMilliseconds = DateConversion.timeBetweenDates(potentialEndDate, potentialStartDate);
+
+        long durationInHoursCeiling = (durationInMilliseconds + (1000 * 60 * 60) - 1) / (1000 * 60 * 60);
+
         double rate = conferenceRoom.getRate() * durationInHoursCeiling;
 
         if(conferenceRoom.doesBookingOverlap(potentialBooking) && guest.getWallet() < rate){

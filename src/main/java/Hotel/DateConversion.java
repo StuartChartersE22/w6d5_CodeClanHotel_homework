@@ -16,7 +16,13 @@ public class DateConversion {
         return calendarDate;
     }
 
-    public static final String formatForDisplay(Calendar date){
+    public static String formatForDisplay(Calendar date){
         return dateFormat.format(date.getTime());
+    }
+
+    public static long timeBetweenDates(Calendar date1, Calendar date2){
+        long date1InMillis = date1.getTimeInMillis();
+        long date2InMillis = date2.getTimeInMillis();
+        return date1InMillis - date2InMillis;
     }
 }
