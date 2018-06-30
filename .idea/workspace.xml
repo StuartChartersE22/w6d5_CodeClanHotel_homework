@@ -630,7 +630,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ConferenceRoomTest">
+  <component name="RunManager" selected="JUnit.DiningRoomTest">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -796,11 +796,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.DiningRoomTest" />
         <item itemvalue="JUnit.ConferenceRoomTest" />
         <item itemvalue="JUnit.BedroomTest" />
         <item itemvalue="JUnit.BookingTest" />
         <item itemvalue="JUnit.HotelTest" />
-        <item itemvalue="JUnit.DiningRoomTest" />
       </list>
     </recent_temporary>
   </component>
