@@ -68,7 +68,7 @@ public class Hotel {
         return rooms;
     }
 
-    public boolean bookConferenceRoom(ConferenceRoom conferenceRoom, Guest guest, String startDateTime, String endDateTime) {
+    public boolean bookRoomWithTime(Room room, Guest guest, String startDateTime, String endDateTime) {
         Calendar potentialStartDate;
         Calendar potentialEndDate;
         try {
@@ -79,15 +79,38 @@ public class Hotel {
         }
 
         Booking potentialBooking = new Booking(potentialStartDate, potentialEndDate);
-        long durationInMilliseconds = DateConversion.timeBetweenDates(potentialEndDate, potentialStartDate);
-        long durationInHoursCeiling = (durationInMilliseconds + (1000 * 60 * 60) - 1) / (1000 * 60 * 60);
-        double rate = conferenceRoom.getRate() * durationInHoursCeiling;
+        long durationInHours = potentialBooking.durationInHours();
+        double cost = room.getRate() * durationInHours;
 
-        if(conferenceRoom.doesBookingOverlap(potentialBooking) && guest.getWallet() < rate){
+        if(room.doesBookingOverlap(potentialBooking) || guest.getWallet() < cost){
             return false;
         }
-        conferenceRoom.bookRoom(guest, potentialBooking);
-        guest.pay(rate);
+
+        room.bookRoom(guest, potentialBooking);
+        guest.pay(cost);
         return true;
     }
+
+//    public boolean bookBedroomForNights(Bedroom bedroom, Guest guest, String startDateTime, int numberOfNights) {
+//        Calendar potentialStartDate;
+//        Calendar potentialEndDate;
+//        try {
+//            potentialStartDate = DateConversion.formatForProgram(startDateTime);
+//            potentialEndDate = DateConversion.formatForProgram(endDateTime);
+//        } catch (ParseException e) {
+//            return false;
+//        }
+//
+//        Booking potentialBooking = new Booking(potentialStartDate, potentialEndDate);
+//        long durationInHours = potentialBooking.durationInHours();
+//        double cost = conferenceRoom.getRate() * durationInHours;
+//
+//        if(conferenceRoom.doesBookingOverlap(potentialBooking) && guest.getWallet() < cost){
+//            return false;
+//        }
+//
+//        conferenceRoom.bookRoom(guest, potentialBooking);
+//        guest.pay(cost);
+//        return true;
+//    }
 }

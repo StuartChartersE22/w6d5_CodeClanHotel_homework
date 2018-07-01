@@ -37,5 +37,11 @@ public class Booking {
         }
         return result;
     }
+
+    public long durationInHours(){
+        long durationInMilliseconds = DateConversion.timeBetweenDates(endDate, startDate);
+        long durationInHoursCeiling = (durationInMilliseconds + (1000 * 60 * 60) - 1) / (1000 * 60 * 60);
+        return durationInHoursCeiling;
+    }
 }
 

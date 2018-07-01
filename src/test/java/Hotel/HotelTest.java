@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class HotelTest {
@@ -109,9 +110,16 @@ public class HotelTest {
 
     @Test
     public void canBookAConferenceRoom(){
-        assertTrue(hotel.bookConferenceRoom(conferenceRoom, guest, startDateTime, endDateTime));
+        assertTrue(hotel.bookRoomWithTime(conferenceRoom, guest, startDateTime, endDateTime));
         assertEquals(1, conferenceRoom.getBookings().size());
         assertEquals(58.00, guest.getWallet(), 0.001);
+    }
+
+    @Test
+    public void cantBookADiningeRoomTooExpensive(){
+        assertFalse(hotel.bookRoomWithTime(diningRoom, guest, startDateTime, endDateTime));
+        assertEquals(0, diningRoom.getBookings().size());
+        assertEquals(200.00, guest.getWallet(), 0.001);
     }
 
 }
