@@ -126,17 +126,17 @@ public class HotelTest {
 
     @Test
     public void canBookABedroomFor2Nights(){
-        assertTrue(hotel.bookBedroomForNights(bedroom1, guest, startDateTime, 2));
+        assertTrue(hotel.bookBedroomForNights(bedroom1, guest, startDateTime, 2, 1));
         assertEquals(1, bedroom1.getBookings().size());
         assertEquals(176.00, guest.getWallet(), 0.001);
     }
 
     @Test
-    public void canFindAvaiableBedrooms() throws ParseException {
+    public void canFindAvailableBedrooms() throws ParseException {
         Calendar startDate = DateHandler.formatForProgram(startDateTime);
         Calendar endDate = DateHandler.formatForProgram(endDateTime);
         Booking potentialBooking = new Booking(startDate, endDate);
-        assertEquals(2, hotel.availableBedrooms(potentialBooking).size());
+        assertEquals(2, hotel.availableBedrooms(potentialBooking, 1).size());
     }
 
 }

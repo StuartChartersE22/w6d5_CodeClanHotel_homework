@@ -95,7 +95,7 @@ public class Hotel {
         return numberOfNights * (1000 * 60 * 60 *24);
     }
 
-    public boolean bookBedroomForNights(Bedroom bedroom, Guest guest, String startDateTime, int numberOfNights) {
+    public boolean bookBedroomForNights(Bedroom bedroom, Guest guest, String startDateTime, int numberOfNights, int numberOfPeople) {
         Calendar potentialStartDate;
         try {
             potentialStartDate = DateHandler.formatForProgram(startDateTime);
@@ -108,7 +108,10 @@ public class Hotel {
         Booking potentialBooking = new Booking(potentialStartDate, durationInMillis);
         double cost = bedroom.getNightlyRate() * numberOfNights;
 
-        if(bedroom.doesBookingOverlap(potentialBooking) && guest.getWallet() < cost){
+        if(!availableBedrooms(potentialBooking, numberOfPeople).contains(bedroom)) {
+            return false;
+        }
+        if (guest.getWallet() < cost) {
             return false;
         }
 
@@ -117,13 +120,26 @@ public class Hotel {
         return true;
     }
 
-    public ArrayList<Bedroom> availableBedrooms(Booking potentialBooking){
+    public ArrayList<Bedroom> availableBedrooms(Booking potentialBooking, int numberOfPeople){
         ArrayList<Bedroom> availableBedrooms = new ArrayList<>();
         for(Bedroom bedroom : bedrooms){
-            if(!bedroom.doesBookingOverlap(potentialBooking)){
+            if(!bedroom.doesBookingOverlap(potentialBooking) && numberOfPeople <= bedroom.getCapacity()){
                 availableBedrooms.add(bedroom);
             }
         }
         return availableBedrooms;
     }
+
+//    USING GENERICS TO NOT LOSE TYPE INFORMATION WHEN USING SAME LOGIC ON MULTIPLE TYPES
+
+//    private <T extends Room> ArrayList<T> availableRooms(Booking potentialBooking, ArrayList<T> rooms){
+//        ArrayList<T> availableBedrooms = new ArrayList<>();
+//        for(T room : rooms){
+//            if(!room.doesBookingOverlap(potentialBooking)){
+//                availableBedrooms.add(room);
+//            }
+//        }
+//        return availableBedrooms;
+//    }
+
 }
