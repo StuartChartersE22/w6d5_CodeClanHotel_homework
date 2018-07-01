@@ -77,6 +77,20 @@ public class ConferenceRoomTest {
         assertEquals(guest, conferenceRoom.getBookings().get(booking));
     }
 
+    @Test
+    public void canRemoveBooking() throws ParseException {
+        String startDatetime = "09-10-2018 at 13:30";
+        String endDatetime = "09-10-2018 at 17:30";
+        Calendar startDate;
+        Calendar endDate;
+        startDate = DateHandler.formatForProgram(startDatetime);
+        endDate = DateHandler.formatForProgram(endDatetime);
+        Booking booking = new Booking(startDate, endDate);
+        conferenceRoom.bookRoom(guest, booking);
+        conferenceRoom.cancelBooking(booking);
+        assertEquals(0, conferenceRoom.getBookings().size());
+    }
+
     // CONFERENCE ROOM SPECIFIC TESTS
 
     @Test

@@ -55,6 +55,10 @@ public abstract class Room {
         bookings.put(booking, guest);
     }
 
+    public void cancelBooking(Booking booking){
+        bookings.remove(booking);
+    }
+
     public HashMap<Booking, Guest> getBookings() {
         return this.bookings;
     }
