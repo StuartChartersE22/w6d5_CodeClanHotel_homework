@@ -1,7 +1,7 @@
 package Hotel.RoomTypes;
 
 import Hotel.Booking;
-import Hotel.DateConversion;
+import Hotel.DateHandler;
 import People.Guest;
 import org.junit.Before;
 import org.junit.Test;
@@ -84,8 +84,8 @@ public class DiningRoomTest {
         String endDatetime = "09-10-2018 at 17:30";
         Calendar startDate;
         Calendar endDate;
-        startDate = DateConversion.formatForProgram(startDatetime);
-        endDate = DateConversion.formatForProgram(endDatetime);
+        startDate = DateHandler.formatForProgram(startDatetime);
+        endDate = DateHandler.formatForProgram(endDatetime);
         Booking booking = new Booking(startDate, endDate);
         diningRoom.bookRoom(guest, booking);
         assertEquals(startDate, diningRoom.getBookings().get(guest).getStartDate());

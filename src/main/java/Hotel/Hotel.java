@@ -72,15 +72,15 @@ public class Hotel {
         Calendar potentialStartDate;
         Calendar potentialEndDate;
         try {
-            potentialStartDate = DateConversion.formatForProgram(startDateTime);
-            potentialEndDate = DateConversion.formatForProgram(endDateTime);
+            potentialStartDate = DateHandler.formatForProgram(startDateTime);
+            potentialEndDate = DateHandler.formatForProgram(endDateTime);
         } catch (ParseException e) {
             return false;
         }
 
         Booking potentialBooking = new Booking(potentialStartDate, potentialEndDate);
         long durationInHours = potentialBooking.durationInHours();
-        double cost = room.getRate() * durationInHours;
+        double cost = room.getHourlyRate() * durationInHours;
 
         if(room.doesBookingOverlap(potentialBooking) || guest.getWallet() < cost){
             return false;
@@ -91,26 +91,29 @@ public class Hotel {
         return true;
     }
 
-//    public boolean bookBedroomForNights(Bedroom bedroom, Guest guest, String startDateTime, int numberOfNights) {
-//        Calendar potentialStartDate;
-//        Calendar potentialEndDate;
-//        try {
-//            potentialStartDate = DateConversion.formatForProgram(startDateTime);
-//            potentialEndDate = DateConversion.formatForProgram(endDateTime);
-//        } catch (ParseException e) {
-//            return false;
-//        }
-//
-//        Booking potentialBooking = new Booking(potentialStartDate, potentialEndDate);
-//        long durationInHours = potentialBooking.durationInHours();
-//        double cost = conferenceRoom.getRate() * durationInHours;
-//
-//        if(conferenceRoom.doesBookingOverlap(potentialBooking) && guest.getWallet() < cost){
-//            return false;
-//        }
-//
-//        conferenceRoom.bookRoom(guest, potentialBooking);
-//        guest.pay(cost);
-//        return true;
-//    }
+    private long nightsToMillis(int numberOfNights){
+        return numberOfNights * (1000 * 60 * 60 *24);
+    }
+
+    public boolean bookBedroomForNights(Bedroom bedroom, Guest guest, String startDateTime, int numberOfNights) {
+        Calendar potentialStartDate;
+        try {
+            potentialStartDate = DateHandler.formatForProgram(startDateTime);
+        } catch (ParseException e) {
+            return false;
+        }
+
+        long durationInMillis = nightsToMillis(numberOfNights);
+
+        Booking potentialBooking = new Booking(potentialStartDate, durationInMillis);
+        double cost = bedroom.getNightlyRate() * numberOfNights;
+
+        if(bedroom.doesBookingOverlap(potentialBooking) && guest.getWallet() < cost){
+            return false;
+        }
+
+        bedroom.bookRoom(guest, potentialBooking);
+        guest.pay(cost);
+        return true;
+    }
 }

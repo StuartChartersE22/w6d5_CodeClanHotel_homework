@@ -3,7 +3,6 @@ package Hotel;
 import People.Guest;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Collection;
 import java.util.HashMap;
 
@@ -11,13 +10,13 @@ public abstract class Room {
 
     private int capacity;
     private ArrayList<Guest> occupants;
-    private double rate;
+    private double hourlyRate;
     protected HashMap<Guest, Booking> bookings;
 
-    public Room(int capacity, double rate){
+    public Room(int capacity, double hourlyRate){
         this.occupants = new ArrayList<>();
         this.capacity = capacity;
-        this.rate = rate;
+        this.hourlyRate = hourlyRate;
         this.bookings = new HashMap<>();
     }
 
@@ -47,8 +46,8 @@ public abstract class Room {
         return occupants.contains(guest);
     }
 
-    public double getRate(){
-        return this.rate;
+    public double getHourlyRate(){
+        return this.hourlyRate;
     }
 
 

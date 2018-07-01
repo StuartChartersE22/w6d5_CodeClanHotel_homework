@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class DateConversion {
+public abstract class DateHandler {
 
     private static SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy 'at' HH:mm");
 
@@ -24,5 +24,13 @@ public class DateConversion {
         long date1InMillis = date1.getTimeInMillis();
         long date2InMillis = date2.getTimeInMillis();
         return date1InMillis - date2InMillis;
+    }
+
+    public static Calendar endDateFromDuration(Calendar startDate, long duration){
+        Calendar endDate = Calendar.getInstance();
+        long startDateInMillis = startDate.getTimeInMillis();
+        long endDateInMillis = startDateInMillis + duration;
+        endDate.setTimeInMillis(endDateInMillis);
+        return endDate;
     }
 }

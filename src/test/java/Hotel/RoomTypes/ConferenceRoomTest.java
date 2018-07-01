@@ -1,7 +1,7 @@
 package Hotel.RoomTypes;
 
 import Hotel.Booking;
-import Hotel.DateConversion;
+import Hotel.DateHandler;
 import People.Guest;
 import org.junit.Before;
 import org.junit.Test;
@@ -70,8 +70,8 @@ public class ConferenceRoomTest {
         String endDatetime = "09-10-2018 at 17:30";
         Calendar startDate;
         Calendar endDate;
-        startDate = DateConversion.formatForProgram(startDatetime);
-        endDate = DateConversion.formatForProgram(endDatetime);
+        startDate = DateHandler.formatForProgram(startDatetime);
+        endDate = DateHandler.formatForProgram(endDatetime);
         Booking booking = new Booking(startDate, endDate);
         conferenceRoom.bookRoom(guest, booking);
         assertEquals(startDate, conferenceRoom.getBookings().get(guest).getStartDate());
@@ -86,6 +86,6 @@ public class ConferenceRoomTest {
 
     @Test
     public void canGetRate(){
-        assertEquals(35.50, conferenceRoom.getRate(), 0.001);
+        assertEquals(35.50, conferenceRoom.getHourlyRate(), 0.001);
     }
 }

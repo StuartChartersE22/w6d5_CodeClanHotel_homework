@@ -28,7 +28,7 @@ public class GuestTest {
 
     @Test
     public void canRemoveMoney(){
-        double roomPrice = bedroom1.getRate();
+        double roomPrice = bedroom1.getHourlyRate();
         guest.pay(roomPrice);
         assertEquals(188.00, guest.getWallet(), 0.001);
     }

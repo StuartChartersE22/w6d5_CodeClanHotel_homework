@@ -122,4 +122,11 @@ public class HotelTest {
         assertEquals(200.00, guest.getWallet(), 0.001);
     }
 
+    @Test
+    public void canBookABedroomFor2Nights(){
+        assertTrue(hotel.bookBedroomForNights(bedroom1, guest, startDateTime, 2));
+        assertEquals(1, bedroom1.getBookings().size());
+        assertEquals(176.00, guest.getWallet(), 0.001);
+    }
+
 }

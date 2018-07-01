@@ -11,6 +11,10 @@ public class Booking {
         this.endDate = endDate;
     }
 
+    public Booking(Calendar startDate, long duration){
+        this.startDate = startDate;
+        this.endDate = DateHandler.endDateFromDuration(startDate, duration);
+    }
 
     public Calendar getStartDate() {
         return this.startDate;
@@ -39,7 +43,7 @@ public class Booking {
     }
 
     public long durationInHours(){
-        long durationInMilliseconds = DateConversion.timeBetweenDates(endDate, startDate);
+        long durationInMilliseconds = DateHandler.timeBetweenDates(endDate, startDate);
         long durationInHoursCeiling = (durationInMilliseconds + (1000 * 60 * 60) - 1) / (1000 * 60 * 60);
         return durationInHoursCeiling;
     }

@@ -22,20 +22,20 @@ public class BookingTest {
         endDatetime = "09-10-2018 at 17:30";
         startDate = Calendar.getInstance();
         endDate = Calendar.getInstance();
-        startDate = DateConversion.formatForProgram(startDatetime);
-        endDate = DateConversion.formatForProgram(endDatetime);
+        startDate = DateHandler.formatForProgram(startDatetime);
+        endDate = DateHandler.formatForProgram(endDatetime);
         booking = new Booking(startDate, endDate);
     }
 
     @Test
     public void canGetStartDate(){
-        String result = DateConversion.formatForDisplay(booking.getStartDate());
+        String result = DateHandler.formatForDisplay(booking.getStartDate());
         assertEquals("09-10-2018 at 13:30", result);
     }
 
     @Test
     public void canGetEndDate(){
-        String result = DateConversion.formatForDisplay(booking.getEndDate());
+        String result = DateHandler.formatForDisplay(booking.getEndDate());
         assertEquals("09-10-2018 at 17:30", result);
     }
 }
