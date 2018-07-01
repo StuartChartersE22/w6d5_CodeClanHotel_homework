@@ -116,4 +116,14 @@ public class Hotel {
         guest.pay(cost);
         return true;
     }
+
+    public ArrayList<Bedroom> availableBedrooms(Booking potentialBooking){
+        ArrayList<Bedroom> availableBedrooms = new ArrayList<>();
+        for(Bedroom bedroom : bedrooms){
+            if(!bedroom.doesBookingOverlap(potentialBooking)){
+                availableBedrooms.add(bedroom);
+            }
+        }
+        return availableBedrooms;
+    }
 }

@@ -8,7 +8,9 @@ import People.Guest;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
@@ -127,6 +129,14 @@ public class HotelTest {
         assertTrue(hotel.bookBedroomForNights(bedroom1, guest, startDateTime, 2));
         assertEquals(1, bedroom1.getBookings().size());
         assertEquals(176.00, guest.getWallet(), 0.001);
+    }
+
+    @Test
+    public void canFindAvaiableBedrooms() throws ParseException {
+        Calendar startDate = DateHandler.formatForProgram(startDateTime);
+        Calendar endDate = DateHandler.formatForProgram(endDateTime);
+        Booking potentialBooking = new Booking(startDate, endDate);
+        assertEquals(2, hotel.availableBedrooms(potentialBooking).size());
     }
 
 }

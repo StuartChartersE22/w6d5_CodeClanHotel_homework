@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f2e117b8-89dc-4ae8-9d5a-ca9d1da9ea75" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/Hotel/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Hotel/Booking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Hotel/DateConversion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Hotel/DateHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Hotel/Hotel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Hotel/Hotel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Hotel/RoomTypes/Bedroom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Hotel/RoomTypes/Bedroom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Hotel/RoomTypes/BedroomTypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Hotel/RoomTypes/BedroomTypes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Hotel/BookingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Hotel/BookingTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Hotel/HotelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Hotel/HotelTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Hotel/RoomTypes/BedroomTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Hotel/RoomTypes/BedroomTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Hotel/RoomTypes/ConferenceRoomTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Hotel/RoomTypes/ConferenceRoomTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Hotel/RoomTypes/DiningRoomTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Hotel/RoomTypes/DiningRoomTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/People/GuestTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/People/GuestTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -75,8 +66,8 @@
           <file leaf-file-name="Hotel.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/Hotel/Hotel.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="94">
-                  <caret line="108" column="38" lean-forward="true" selection-start-line="108" selection-start-column="38" selection-end-line="108" selection-end-column="38" />
+                <state relative-caret-position="302">
+                  <caret line="126" column="33" selection-start-line="126" selection-start-column="33" selection-end-line="126" selection-end-column="33" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#1472#1473#0" expanded="true" />
@@ -149,8 +140,8 @@
           <file leaf-file-name="HotelTest.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/test/java/Hotel/HotelTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="199">
-                  <caret line="127" column="32" selection-start-line="127" selection-start-column="32" selection-end-line="127" selection-end-column="32" />
+                <state relative-caret-position="244">
+                  <caret line="138" column="72" selection-start-line="138" selection-start-column="72" selection-end-line="138" selection-end-column="72" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#1354#1355#0" expanded="true" />
@@ -505,10 +496,10 @@
         <option value="$PROJECT_DIR$/src/main/java/Hotel/DateConversion.java" />
         <option value="$PROJECT_DIR$/src/main/java/Hotel/DateHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/Hotel/Booking.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Hotel/Hotel.java" />
         <option value="$PROJECT_DIR$/src/main/java/Hotel/RoomTypes/Bedroom.java" />
         <option value="$PROJECT_DIR$/src/main/java/Hotel/RoomTypes/BedroomTypes.java" />
         <option value="$PROJECT_DIR$/src/main/java/Hotel/Room.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Hotel/Hotel.java" />
         <option value="$PROJECT_DIR$/src/test/java/Hotel/HotelTest.java" />
       </list>
     </option>
@@ -636,32 +627,9 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.HotelTest.canBookABedroomFor2Nights">
+  <component name="RunManager" selected="JUnit.HotelTest">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-    </configuration>
-    <configuration name="ConferenceRoomTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="CodeClanHotel_test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Hotel.RoomTypes.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="Hotel.RoomTypes" />
-      <option name="MAIN_CLASS_NAME" value="Hotel.RoomTypes.ConferenceRoomTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
     </configuration>
     <configuration name="DiningRoomTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CodeClanHotel_test" />
@@ -755,6 +723,29 @@
       </option>
       <patterns />
     </configuration>
+    <configuration name="HotelTest.canFindAvaiableBedrooms" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CodeClanHotel_test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Hotel.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="Hotel" />
+      <option name="MAIN_CLASS_NAME" value="Hotel.HotelTest" />
+      <option name="METHOD_NAME" value="canFindAvaiableBedrooms" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -794,19 +785,19 @@
       <listeners />
     </configuration>
     <list>
-      <item itemvalue="JUnit.ConferenceRoomTest" />
       <item itemvalue="JUnit.DiningRoomTest" />
       <item itemvalue="JUnit.HotelTest" />
       <item itemvalue="JUnit.HotelTest.canBookADiningeRoom" />
       <item itemvalue="JUnit.HotelTest.canBookABedroomFor2Nights" />
+      <item itemvalue="JUnit.HotelTest.canFindAvaiableBedrooms" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.HotelTest.canBookABedroomFor2Nights" />
         <item itemvalue="JUnit.HotelTest" />
+        <item itemvalue="JUnit.HotelTest.canFindAvaiableBedrooms" />
+        <item itemvalue="JUnit.HotelTest.canBookABedroomFor2Nights" />
         <item itemvalue="JUnit.HotelTest.canBookADiningeRoom" />
         <item itemvalue="JUnit.DiningRoomTest" />
-        <item itemvalue="JUnit.ConferenceRoomTest" />
       </list>
     </recent_temporary>
   </component>
@@ -824,12 +815,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="HotelTest - 2018.07.01 at 16h 26m 21s.xml">
-      <configuration name="HotelTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="HotelTest - 2018.07.01 at 16h 26m 55s.xml">
-      <configuration name="HotelTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="HotelTest - 2018.07.01 at 16h 48m 47s.xml">
       <configuration name="HotelTest" configurationId="JUnit" />
     </history-entry>
@@ -853,6 +838,12 @@
     </history-entry>
     <history-entry file="HotelTest - 2018.07.01 at 16h 56m 11s.xml">
       <configuration name="HotelTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HotelTest_canBookABedroomFor2Nights - 2018.07.01 at 17h 53m 54s.xml">
+      <configuration name="HotelTest.canBookABedroomFor2Nights" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HotelTest_canBookABedroomFor2Nights - 2018.07.01 at 17h 54m 09s.xml">
+      <configuration name="HotelTest.canBookABedroomFor2Nights" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -1089,8 +1080,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Hotel/Hotel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="108" column="38" lean-forward="true" selection-start-line="108" selection-start-column="38" selection-end-line="108" selection-end-column="38" />
+        <state relative-caret-position="302">
+          <caret line="126" column="33" selection-start-line="126" selection-start-column="33" selection-end-line="126" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1472#1473#0" expanded="true" />
@@ -1109,8 +1100,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/Hotel/HotelTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="127" column="32" selection-start-line="127" selection-start-column="32" selection-end-line="127" selection-end-column="32" />
+        <state relative-caret-position="244">
+          <caret line="138" column="72" selection-start-line="138" selection-start-column="72" selection-end-line="138" selection-end-column="72" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1354#1355#0" expanded="true" />
