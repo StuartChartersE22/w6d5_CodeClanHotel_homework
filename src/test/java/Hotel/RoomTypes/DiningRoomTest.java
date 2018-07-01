@@ -88,7 +88,7 @@ public class DiningRoomTest {
         endDate = DateHandler.formatForProgram(endDatetime);
         Booking booking = new Booking(startDate, endDate);
         diningRoom.bookRoom(guest, booking);
-        assertEquals(startDate, diningRoom.getBookings().get(guest).getStartDate());
+        assertEquals(guest, diningRoom.getBookings().get(booking));
     }
 
     //DINING ROOM SPECIFIC TESTS

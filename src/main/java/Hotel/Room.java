@@ -11,7 +11,7 @@ public abstract class Room {
     private int capacity;
     private ArrayList<Guest> occupants;
     private double hourlyRate;
-    protected HashMap<Guest, Booking> bookings;
+    protected HashMap<Booking, Guest> bookings;
 
     public Room(int capacity, double hourlyRate){
         this.occupants = new ArrayList<>();
@@ -52,16 +52,16 @@ public abstract class Room {
 
 
     public void bookRoom(Guest guest, Booking booking){
-        bookings.put(guest, booking);
+        bookings.put(booking, guest);
     }
 
-    public HashMap<Guest, Booking> getBookings() {
+    public HashMap<Booking, Guest> getBookings() {
         return this.bookings;
     }
 
     public boolean doesBookingOverlap(Booking potentialBooking){
         boolean result = false;
-        Collection<Booking> currentBookings = this.bookings.values();
+        Collection<Booking> currentBookings = this.bookings.keySet();
         for(Booking booking : currentBookings){
             if(booking.doesBookingOverlap(potentialBooking)){
                 result = true;

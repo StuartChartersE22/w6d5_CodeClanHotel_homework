@@ -74,7 +74,7 @@ public class ConferenceRoomTest {
         endDate = DateHandler.formatForProgram(endDatetime);
         Booking booking = new Booking(startDate, endDate);
         conferenceRoom.bookRoom(guest, booking);
-        assertEquals(startDate, conferenceRoom.getBookings().get(guest).getStartDate());
+        assertEquals(guest, conferenceRoom.getBookings().get(booking));
     }
 
     // CONFERENCE ROOM SPECIFIC TESTS

@@ -30,7 +30,7 @@ public class GuestTest {
     public void canRemoveMoney(){
         double roomPrice = bedroom1.getHourlyRate();
         guest.pay(roomPrice);
-        assertEquals(188.00, guest.getWallet(), 0.001);
+        assertEquals(195.00, guest.getWallet(), 0.001);
     }
 
 }

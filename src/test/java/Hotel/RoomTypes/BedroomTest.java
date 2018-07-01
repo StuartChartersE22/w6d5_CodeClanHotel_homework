@@ -77,7 +77,7 @@ public class BedroomTest {
         endDate = DateHandler.formatForProgram(endDatetime);
         Booking booking = new Booking(startDate, endDate);
         bedroom1.bookRoom(guest, booking);
-        assertEquals(startDate, bedroom1.getBookings().get(guest).getStartDate());
+        assertEquals(guest, bedroom1.getBookings().get(booking));
     }
 
     // BEDROOM SPECIFIC TESTS
@@ -94,6 +94,6 @@ public class BedroomTest {
 
     @Test
     public void canGetBedroomRate(){
-        assertEquals(12.00, bedroom1.getHourlyRate(), 0.001);
+        assertEquals(5.00, bedroom1.getHourlyRate(), 0.001);
     }
 }
