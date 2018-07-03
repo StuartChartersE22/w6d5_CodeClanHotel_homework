@@ -120,26 +120,25 @@ public class Hotel {
         return true;
     }
 
-    public ArrayList<Bedroom> availableBedrooms(Booking potentialBooking, int numberOfPeople){
-        ArrayList<Bedroom> availableBedrooms = new ArrayList<>();
-        for(Bedroom bedroom : bedrooms){
-            if(!bedroom.doesBookingOverlap(potentialBooking) && numberOfPeople <= bedroom.getCapacity()){
-                availableBedrooms.add(bedroom);
+    private <T extends Room> ArrayList<T> availableRooms(Booking potentialBooking, int numberOfPeople, ArrayList<T> rooms){
+        ArrayList<T> availableBedrooms = new ArrayList<>();
+        for(T room : rooms){
+            if(!room.doesBookingOverlap(potentialBooking) && numberOfPeople <= room.getCapacity()){
+                availableBedrooms.add(room);
             }
         }
         return availableBedrooms;
     }
 
-//    USING GENERICS TO NOT LOSE TYPE INFORMATION WHEN USING SAME LOGIC ON MULTIPLE TYPES
+    public ArrayList<Bedroom> availableBedrooms(Booking potentialBooking, int numberOfPeople){
+        return availableRooms(potentialBooking, numberOfPeople, bedrooms);
+        }
 
-//    private <T extends Room> ArrayList<T> availableRooms(Booking potentialBooking, ArrayList<T> rooms){
-//        ArrayList<T> availableBedrooms = new ArrayList<>();
-//        for(T room : rooms){
-//            if(!room.doesBookingOverlap(potentialBooking)){
-//                availableBedrooms.add(room);
-//            }
-//        }
-//        return availableBedrooms;
-//    }
+    public ArrayList<DiningRoom> availableDiningRooms(Booking potentialBooking, int numberOfPeople){
+        return availableRooms(potentialBooking, numberOfPeople, diningRooms);
+        }
 
-}
+    public ArrayList<ConferenceRoom> availableConferenceRoom(Booking potentialBooking, int numberOfPeople){
+        return availableRooms(potentialBooking, numberOfPeople, conferenceRooms);
+        }
+    }

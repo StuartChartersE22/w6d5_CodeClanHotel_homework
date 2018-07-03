@@ -139,4 +139,20 @@ public class HotelTest {
         assertEquals(2, hotel.availableBedrooms(potentialBooking, 1).size());
     }
 
+    @Test
+    public void canFindAvailableConferenceRooms() throws ParseException {
+        Calendar startDate = DateHandler.formatForProgram(startDateTime);
+        Calendar endDate = DateHandler.formatForProgram(endDateTime);
+        Booking potentialBooking = new Booking(startDate, endDate);
+        assertEquals(1, hotel.availableConferenceRoom(potentialBooking, 1).size());
+    }
+
+    @Test
+    public void canFindAvailableDiningRooms() throws ParseException {
+        Calendar startDate = DateHandler.formatForProgram(startDateTime);
+        Calendar endDate = DateHandler.formatForProgram(endDateTime);
+        Booking potentialBooking = new Booking(startDate, endDate);
+        assertEquals(1, hotel.availableDiningRooms(potentialBooking, 1).size());
+    }
+
 }
