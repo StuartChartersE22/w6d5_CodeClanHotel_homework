@@ -68,21 +68,12 @@ public class Hotel {
         return rooms;
     }
 
-    public boolean bookRoomWithTime(Room room, Guest guest, String startDateTime, String endDateTime) {
-        Calendar potentialStartDate;
-        Calendar potentialEndDate;
-        try {
-            potentialStartDate = DateHandler.formatForProgram(startDateTime);
-            potentialEndDate = DateHandler.formatForProgram(endDateTime);
-        } catch (ParseException e) {
-            return false;
-        }
+    private <T extends Room> boolean bookRoom(T room, Guest guest, int numberOfPeople, Booking potentialBooking, ArrayList<T> rooms) {
 
-        Booking potentialBooking = new Booking(potentialStartDate, potentialEndDate);
         long durationInHours = potentialBooking.durationInHours();
-        double cost = room.getHourlyRate() * durationInHours;
+        double cost = room.getRate() * durationInHours;
 
-        if(room.doesBookingOverlap(potentialBooking) || guest.getWallet() < cost){
+        if(!availableRooms(potentialBooking, numberOfPeople, rooms).contains(room) || guest.getWallet() < cost){
             return false;
         }
 
@@ -95,7 +86,39 @@ public class Hotel {
         return numberOfNights * (1000 * 60 * 60 *24);
     }
 
-    public boolean bookBedroomForNights(Bedroom bedroom, Guest guest, String startDateTime, int numberOfNights, int numberOfPeople) {
+    public boolean bookConferenceRoom(ConferenceRoom conferenceRoom, Guest guest, int numberOfGuests, String startDateTime, String endDateTime){
+        Calendar potentialStartDate;
+        Calendar potentialEndDate;
+        try {
+            potentialStartDate = DateHandler.formatForProgram(startDateTime);
+            potentialEndDate = DateHandler.formatForProgram(endDateTime);
+        } catch (ParseException e) {
+            return false;
+        }
+
+        Booking potentialBooking = new Booking(potentialStartDate, potentialEndDate);
+
+        return bookRoom(conferenceRoom, guest, numberOfGuests, potentialBooking, conferenceRooms);
+
+    }
+
+    public boolean bookDiningRoom(DiningRoom diningRoom, Guest guest, int numberOfGuests, String startDateTime, String endDateTime){
+        Calendar potentialStartDate;
+        Calendar potentialEndDate;
+        try {
+            potentialStartDate = DateHandler.formatForProgram(startDateTime);
+            potentialEndDate = DateHandler.formatForProgram(endDateTime);
+        } catch (ParseException e) {
+            return false;
+        }
+
+        Booking potentialBooking = new Booking(potentialStartDate, potentialEndDate);
+
+        return bookRoom(diningRoom, guest, numberOfGuests, potentialBooking, diningRooms);
+
+    }
+
+    public boolean bookBedroomForNights(Bedroom bedroom, Guest guest, int numberOfGuests, String startDateTime, int numberOfNights) {
         Calendar potentialStartDate;
         try {
             potentialStartDate = DateHandler.formatForProgram(startDateTime);
@@ -106,18 +129,8 @@ public class Hotel {
         long durationInMillis = nightsToMillis(numberOfNights);
 
         Booking potentialBooking = new Booking(potentialStartDate, durationInMillis);
-        double cost = bedroom.getNightlyRate() * numberOfNights;
 
-        if(!availableBedrooms(potentialBooking, numberOfPeople).contains(bedroom)) {
-            return false;
-        }
-        if (guest.getWallet() < cost) {
-            return false;
-        }
-
-        bedroom.bookRoom(guest, potentialBooking);
-        guest.pay(cost);
-        return true;
+        return bookRoom(bedroom, guest, numberOfGuests, potentialBooking, bedrooms);
     }
 
     private <T extends Room> ArrayList<T> availableRooms(Booking potentialBooking, int numberOfPeople, ArrayList<T> rooms){

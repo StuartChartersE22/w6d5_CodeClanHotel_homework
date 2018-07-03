@@ -100,6 +100,6 @@ public class ConferenceRoomTest {
 
     @Test
     public void canGetRate(){
-        assertEquals(35.50, conferenceRoom.getHourlyRate(), 0.001);
+        assertEquals(35.50, conferenceRoom.getRate(), 0.001);
     }
 }

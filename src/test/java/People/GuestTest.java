@@ -25,12 +25,4 @@ public class GuestTest {
     public void canGetWallet(){
         assertEquals(200.00, guest.getWallet(), 0.001);
     }
-
-    @Test
-    public void canRemoveMoney(){
-        double roomPrice = bedroom1.getHourlyRate();
-        guest.pay(roomPrice);
-        assertEquals(195.00, guest.getWallet(), 0.001);
-    }
-
 }

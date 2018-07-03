@@ -106,8 +106,4 @@ public class BedroomTest {
         assertEquals(1, bedroom1.getNumber());
     }
 
-    @Test
-    public void canGetBedroomRate(){
-        assertEquals(5.00, bedroom1.getHourlyRate(), 0.001);
-    }
 }

@@ -21,7 +21,4 @@ public class Bedroom extends Room {
         return this.number;
     }
 
-    public double getNightlyRate() {
-        return type.getNightlyRate();
-    }
 }

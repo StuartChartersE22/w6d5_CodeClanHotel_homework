@@ -46,7 +46,7 @@ public abstract class Room {
         return occupants.contains(guest);
     }
 
-    public double getHourlyRate(){
+    public double getRate(){
         return this.hourlyRate;
     }
 

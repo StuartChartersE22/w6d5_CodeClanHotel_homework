@@ -112,21 +112,21 @@ public class HotelTest {
 
     @Test
     public void canBookAConferenceRoom(){
-        assertTrue(hotel.bookRoomWithTime(conferenceRoom, guest, startDateTime, endDateTime));
+        assertTrue(hotel.bookConferenceRoom(conferenceRoom, guest, 20, startDateTime, endDateTime));
         assertEquals(1, conferenceRoom.getBookings().size());
         assertEquals(58.00, guest.getWallet(), 0.001);
     }
 
     @Test
     public void cantBookADiningeRoomTooExpensive(){
-        assertFalse(hotel.bookRoomWithTime(diningRoom, guest, startDateTime, endDateTime));
+        assertFalse(hotel.bookDiningRoom(diningRoom, guest, 10, startDateTime, endDateTime));
         assertEquals(0, diningRoom.getBookings().size());
         assertEquals(200.00, guest.getWallet(), 0.001);
     }
 
     @Test
     public void canBookABedroomFor2Nights(){
-        assertTrue(hotel.bookBedroomForNights(bedroom1, guest, startDateTime, 2, 1));
+        assertTrue(hotel.bookBedroomForNights(bedroom1, guest, 1, startDateTime, 2));
         assertEquals(1, bedroom1.getBookings().size());
         assertEquals(176.00, guest.getWallet(), 0.001);
     }
